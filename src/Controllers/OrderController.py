@@ -13,16 +13,20 @@ class OrderController():
                       shift_id = shift_id)
 
     # Уволить - изменить стату на  False
-    def update_order_pay(self, id_order):
+    @classmethod
+    def update_order_pay(cls, id_order):
         Orders.update({Orders.status_id: 2}).where(Orders.id == id_order).execute()
 
-    def update_order_сooking(self, id_order):
+    @classmethod
+    def update_order_сooking(cls, id_order):
         Orders.update({Orders.status_id: 3}).where(Orders.id == id_order).execute()
 
-    def update_order_ready(self, id_order):
+    @classmethod
+    def update_order_ready(cls, id_order):
         Orders.update({Orders.status_id: 4}).where(Orders.id == id_order).execute()
 
-    def show(self, shift_id):
+    @classmethod
+    def show(cls, shift_id):
         return Orders.select().where(Orders.shift_id == shift_id).execute()
 
 if __name__ == "__main__":
