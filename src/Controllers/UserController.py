@@ -22,7 +22,6 @@ class UserController():
 
     # Метод класса
     @classmethod
-
     # Метод который выводит id по имени
     def show(cls, login):
         return Users.get(Users.login == login)
@@ -32,7 +31,7 @@ if __name__ == "__main__":
     print(users.log_in('admin_Ekaterina', '11111'))
     for row in users.get():
         print(row.id, row.login, row.password, row.name, row.status)
-    #users.add('Van', '1234', 'Vana', '2')
+    users.add('Van', '1234', 'Vana', '2')
     print("-----------------")
     for row in users.get():
         print(row.id, row.name, row.status)
