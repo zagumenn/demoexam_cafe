@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Form implementation generated from reading ui file 'dem_cafe.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
@@ -9,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from src.Controllers.UserController import *
 
 
 class Ui_login(object):
@@ -27,6 +27,13 @@ class Ui_login(object):
         self.ButtonLogin = QtWidgets.QPushButton(login)
         self.ButtonLogin.setGeometry(QtCore.QRect(470, 400, 80, 26))
         self.ButtonLogin.setObjectName("ButtonLogin")
+        self.ButtonLogin = QtWidgets.QPushButton(login)
+        self.ButtonLogin.setGeometry(QtCore.QRect(470, 400, 80, 26))
+        self.ButtonLogin.setObjectName("ButtonLogin")
+
+        self.ButtonReg = QtWidgets.QPushButton(login)
+        self.ButtonReg.setGeometry(QtCore.QRect(570, 400, 80, 26))
+        self.ButtonReg.setObjectName("ButtonReg")
 
         self.retranslateUi(login)
         QtCore.QMetaObject.connectSlotsByName(login)
@@ -51,9 +58,19 @@ class Ui_login(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Open Sans\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
-        self.addPassword.setPlaceholderText(_translate("login", "Введите свой логин"))
+        self.addPassword.setPlaceholderText(_translate("login", "Введите свой пароль"))
         self.ButtonLogin.setText(_translate("login", "Войти"))
+        self.ButtonReg.setText(_translate("login", "Регистрация"))
 
+    def test_button(self):
+        log = self.addLogin.toPlainText()
+        password = self.addPassword.toPlainText()
+        user = UserController()
+        result = user.log_in(log, password)
+        print(result)
+
+    def pressButton(self):
+        self.ButtonLogin.clicked.connect(self.test_button)
 
 if __name__ == "__main__":
     import sys
@@ -61,5 +78,6 @@ if __name__ == "__main__":
     login = QtWidgets.QWidget()
     ui = Ui_login()
     ui.setupUi(login)
+    ui.pressButton()
     login.show()
     sys.exit(app.exec_())
