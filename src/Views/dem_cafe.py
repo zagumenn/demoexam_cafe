@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from src.Controllers.UserController import *
+from src.Views.admin_window import Ui_adminWindow
 
 
 class Ui_login(object):
@@ -69,15 +70,33 @@ class Ui_login(object):
         result = user.log_in(log, password)
         print(result)
 
+    def open_panel(self):
+        log = self.addLogin.toPlainText()
+        password = self.addPassword.toPlainText()
+        users = UserController()
+        if users.log_in(log, password):
+            if UserController.show(log).role_id.id == 1:
+                print("Админ")
+            elif UserController.show(log).role_id.id == 2:
+                print("Официант")
+            else:
+                print("Повар")
+        else:
+            print("Пароль или логин введены не верно")
+
+    # метод проверки логина и пароля и роли
+    # если логин и парол true то проверяется роль и открывается для него окно
     def pressButton(self):
-        self.ButtonLogin.clicked.connect(self.test_button)
+        self.ButtonLogin.clicked.connect(self.open_panel)
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     login = QtWidgets.QWidget()
     ui = Ui_login()
+    ui = Ui_adminWindow()
     ui.setupUi(login)
     ui.pressButton()
+    ui.open_panel()
     login.show()
     sys.exit(app.exec_())

@@ -28,15 +28,16 @@ class UserController():
 
 if __name__ == "__main__":
     users = UserController()
-    print(users.log_in('admin_Ekaterina', '11111'))
-    for row in users.get():
-        print(row.id, row.login, row.password, row.name, row.status)
-    users.add('Van', '1234', 'Vana', '2')
-    print("-----------------")
-    for row in users.get():
-        print(row.id, row.name, row.status)
-    users.update_status(9)
-    print("-----------------")
-    for row in users.get():
-        print(row.id, row.name, row.status)
-    print(users.show('Van'))
+    # print(users.log_in('admin_Ekaterina', '11111'))
+    # for row in users.get():
+    #     print(row.id, row.login, row.password, row.name, row.status)
+    # users.add('Van', '1234', 'Vana', '2')
+    # print("-----------------")
+    # for row in users.get():
+    #     print(row.id, row.name, row.status)
+    # users.update_status(9)
+    # print("-----------------")
+    # for row in users.get():
+    #     print(row.id, row.name, row.status)
+    # print(users.show('Van'))
+    print(UserController.show('admin_Ekaterina').role_id)
