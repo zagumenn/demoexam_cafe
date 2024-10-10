@@ -40,6 +40,7 @@ for row in list_user:
                           command = user.update_status(row.id))
     button_login.grid(column = 3, row = count_row, padx = 0, pady = 1)
 
+    print(row.login, row.status)
     count_row += 1
 
 
