@@ -20,6 +20,9 @@ class UserController():
     def update_status(self, id_user):
         Users.update({Users.status: False}).where(Users.id == id_user).execute()
 
+    def update_status_true(self):
+        Users.update({Users.status: True}).execute()
+
     # Метод класса
     @classmethod
     # Метод который выводит id по имени
