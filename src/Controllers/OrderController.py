@@ -13,6 +13,11 @@ class OrderController():
                       drink_id = drink_id, food_id = food_id,
                       shift_id = shift_id)
 
+    def add_order(self, count_client, table_id, food_id):
+        Orders.create(count_cliens=count_client, table_id=table_id,
+                      food_id=food_id,
+                      )
+
     @classmethod
     def update_order_pay(cls, id_order):
         Orders.update({Orders.status_id: 2}).where(Orders.id == id_order).execute()
