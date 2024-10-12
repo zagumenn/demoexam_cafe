@@ -1,4 +1,4 @@
-from symbol import shift_expr
+
 
 from src.Models.Orders import *
 
@@ -13,10 +13,9 @@ class OrderController():
                       drink_id = drink_id, food_id = food_id,
                       shift_id = shift_id)
 
-    def add_order(self, count_client, table_id, food_id):
-        Orders.create(count_cliens=count_client, table_id=table_id,
-                      food_id=food_id,
-                      )
+    def add_order(self, table_id, food_id, count_clients):
+        Orders.create(table_id=table_id, food_id=food_id, count_cliens = count_clients, shift_id = 1, status_id = 1, drink_id = 1)
+
 
     @classmethod
     def update_order_pay(cls, id_order):
@@ -37,6 +36,7 @@ class OrderController():
 
 if __name__ == "__main__":
     ord = OrderController()
+    ord.add_order('2', '2', '2')
     #ord.add('5', '1', '1', '1', '2')
     print("-------------")
     for row in ord.get():
@@ -50,3 +50,4 @@ if __name__ == "__main__":
     print("-------------")
     for row in ord.show(2):
         print(row.id, row.count_cliens, row.table_id, row.drink_id.name, row.food_id.name, row.shift_id.date, row.status_id.name)
+

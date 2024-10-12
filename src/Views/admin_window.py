@@ -415,7 +415,7 @@ class Ui_adminWindow(object):
         self.labelEmployee_44.setText(_translate("Widget", "Номер смены"))
         self.labelEmployee_46.setText(_translate("Widget", "Повар"))
         self.lineEdit_6.setPlaceholderText(_translate("Widget", "Добавить смену"))
-        self.lineEdit_7.setPlaceholderText(_translate("Widget", "Добавить официанта"))
+        self.lineEdit_7.setPlaceholderText(_translate("Widget", "Добавить повара"))
         self.lineEdit_8.setPlaceholderText(_translate("Widget", "Первый официант"))
         self.lineEdit_9.setPlaceholderText(_translate("Widget", "Второй официант"))
         self.pushButton.setText(_translate("Widget", "Добавить сотрудника"))

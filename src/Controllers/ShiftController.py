@@ -19,6 +19,6 @@ if __name__ == "__main__":
     sh = ShiftController()
     for row in sh.get():
         print(row.id, row.cook_id.login, row.oficiant_1_id.login, row.oficiant_2_id.login)
-    #sh.add('2024-10-04 10:00:00', 'cook_Alexandr', 'waiter_Sergey', 'waiter_Ilya')
+    sh.add('2024-10-04 10:00:00', 'cook_Alexandr', 'waiter_Sergey', 'waiter_Ilya')
     for row in sh.get():
         print(row.id, row.cook_id.login, row.oficiant_1_id.login, row.oficiant_2_id.login)

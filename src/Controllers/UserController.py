@@ -1,3 +1,5 @@
+from collections import UserDict
+
 from src.Models.Users import *
 
 class UserController():
@@ -29,8 +31,25 @@ class UserController():
     def show(cls, login):
         return Users.get(Users.login == login)
 
+    # Вывод списка через роль
+    @classmethod
+    def show_user(csl, role_id):
+        return Users.select().where(Users.role_id == role_id)
+
+    @classmethod
+    def list_user(cls, role_id):
+        list = []
+        for user in UserController.show_user(role_id):
+            list.append(user.login)
+        return list
+
+
+
 if __name__ == "__main__":
     users = UserController()
+    for row in UserController.show_user(3):
+        print(row.login)
+
     # print(users.log_in('admin_Ekaterina', '11111'))
     # for row in users.get():
     #     print(row.id, row.login, row.password, row.name, row.status)
